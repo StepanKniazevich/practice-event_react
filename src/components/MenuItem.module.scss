@@ -1,0 +1,152 @@
+%hover-style {
+    color:white;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    &:hover {
+        opacity: 1;
+    }
+}
+@mixin hover-style ($element) {
+    @if ($element == cross) {
+        opacity: 0.5;
+        transition: all 0.3s ease;
+        &:hover {
+            opacity: 1;
+            color:red;
+        }
+    }
+    @else {
+        color:white;
+        opacity: 0.5;
+        transition: all 0.3s ease;
+        &:hover {
+        opacity: 1;
+         }
+    }
+}
+
+.menuItems {
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+}
+.link,.block {
+    color:white;
+    font-size: 1.3rem;
+    transition: all 0.8s ease;
+    &:hover {
+        text-shadow: 1px 1px 2px rgb(0, 60, 255), 0 0 1em blue, 0 0 0.2em blue;
+        &:before {
+            content: "  ";
+            display: inline-block;
+            vertical-align: middle;
+            margin-right:5px;
+            width:10px;
+            height:10px;
+            border:1px solid rgb(241, 241, 241);
+            background-color:aliceblue;
+            border-radius:100%;
+        }
+    }
+   
+}
+
+.item {
+    display: flex;
+    transition: all 0.8s ;
+    justify-content: space-between;
+    &:not(:last-child) {
+        margin-bottom: 10px;
+        }
+}
+
+
+.block, .cross  {
+    cursor:pointer;
+}
+.cross {
+    margin-left: 10px;
+    @extend %hover-style;
+    &:hover {
+        color:rgb(92, 20, 20);
+    }
+}
+
+.addLink {
+    margin-top: 10px;
+    padding:5px;
+    background-color:rgba(51, 180, 34, 0.3);
+    border-radius:10px;
+    font-size: 1.2rem;
+    @extend %hover-style;
+}
+.noLink {
+    color:rgb(133, 130, 130);
+    font-size: 1.2rem;
+}
+.menuForm {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    
+}
+.inputsWrapper {
+    display: flex;
+    flex-direction: column;
+}
+.addLinkForm {
+    margin-top: 2px;
+}
+.inputContainer {
+   position: relative;
+   &:last-child {
+        .input {
+            border-radius:0px 0px 0px 20px;
+
+        }
+   }
+}
+.resetValue {
+    position: absolute;
+    top:0px;
+    height:100%;
+    right:-14px;
+    font-size: 1.5rem;
+    color:black;
+    background-color: white;
+    display:none;
+    transition: all 0.8s ease; 
+}
+.input {
+    padding: 5px;
+    font-size: 1.2rem;
+    border-radius:20px 0px 0px 0px;
+    caret-color: blue;
+    text-align: center;
+    &:focus,&:hover {
+        transition: all 0.8s ;
+        background-color:rgba(51, 180, 34, 0.3);
+        color:white;
+        & ~ .resetValue {
+            background-color: rgba(51, 180, 34, 0.3);
+            color:white;
+            transition: all 0.8s ease; 
+        }
+    }
+    &:last-child {
+        border-radius:40px 0px 0px 0px;
+    }
+    &::placeholder {
+        text-align:center;
+        color: rgb(206, 206, 206);
+    }  
+    &:valid ~ .resetValue {
+        display: block;
+      }  
+    transition: all 0.8s ease; 
+ }
+ 
+ 
