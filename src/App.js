@@ -1,29 +1,28 @@
 import {Menu} from './components/Menu';
 import styles from './App.module.scss';
 import {data} from "./api/data";
-import reducer from "./reducer/reducer";
-import {useReducer, useState} from 'react';
-import {deleteLink, addLink} from './reducer/actions';
+import { useState} from 'react';
 import {Context} from './context';
 
 function App() {
     const [dataLinks, setDataLinks] = useState(data);
-    /*   const [state, dispatch] = useReducer(reducer, data);*/
+    const [newLink, setNewLink] = useState(false);
     const dataFunctions = {
         del: (title) => {
-            console.log(title);
             setDataLinks(dataLinks.filter((link) => 
                link.title != title
             ))
         },
-
-        add: (title) => {
-            console.log(title);
+        add: (title,url) => {
+          setDataLinks(dataLinks.concat([{title:title,link:url}])
+       )
         }
     }
     return (
         <Context.Provider value={{
-                dataFunctions
+                dataFunctions,
+                newLink,
+                setNewLink
             }}>
             <div className={styles.wrapper}>
                 <div className={styles.container}>
