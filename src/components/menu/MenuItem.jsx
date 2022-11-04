@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MenuItem.module.scss";
 import {useState} from "react";
 import { useContext } from "react";
-import {Context} from '../context.js';
+import {Context} from '../../context';
 
 export const MenuItem = ({title, link}) => {
     const [time, setTime] = useState(1);

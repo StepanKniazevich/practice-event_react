@@ -1,4 +1,4 @@
-import {Menu} from './components/Menu';
+import {Menu} from './components/menu/Menu';
 import styles from './App.module.scss';
 import {data} from "./api/data";
 import { useState} from 'react';
@@ -6,7 +6,7 @@ import {Context} from './context';
 
 function App() {
     const [dataLinks, setDataLinks] = useState(data);
-    const [newLink, setNewLink] = useState(false);
+
     const dataFunctions = {
         del: (title) => {
             setDataLinks(dataLinks.filter((link) => 
@@ -20,9 +20,8 @@ function App() {
     }
     return (
         <Context.Provider value={{
-                dataFunctions,
-                newLink,
-                setNewLink
+                dataLinks,
+                dataFunctions
             }}>
             <div className={styles.wrapper}>
                 <div className={styles.container}>
