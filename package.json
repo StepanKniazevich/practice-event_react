@@ -1,5 +1,6 @@
-{
-  "name": "practice-event",
+{ 
+  "homepage": "http://StepanKniazevich.github.io/practice-event_react",
+  "name": "practice-event_react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -37,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "sass": "^1.55.0"
   }
 }
