@@ -8,7 +8,7 @@
 }
 @mixin hover-style ($element) {
     @if ($element == cross) {
-        opacity: 0.5;
+        opacity: 0.4;
         transition: all 0.3s ease;
         &:hover {
             opacity: 1;
@@ -165,5 +165,27 @@
         border-radius:0px 20px 20px 0px;
     }
   }
- 
+  
+.errorsWrapper {
+    div {
+        position:relative;
+        color: red;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: rgb(253, 0, 0);
+            border-radius: 50%;
+            position: absolute;
+            top:4px;
+            left: -8px; 
+        }
+        &:first-child {
+            margin-top: 20px;
+        }
+
+    }
+}
+
  

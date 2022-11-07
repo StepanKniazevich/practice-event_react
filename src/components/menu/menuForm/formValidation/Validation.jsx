@@ -25,10 +25,11 @@ const useValidation = (value, validations) => {
                         : setEmpty(true);
                     break;
                 case INVALID_URL:
-                    validations[validation].test(value)
-                        ? setInvalidUrl(false)
-                        : setInvalidUrl(true);
-            }
+                    (!validations[validation].test(value) && (value.length !== 0))
+                        ? setInvalidUrl(true)
+                        : setInvalidUrl(false);
+                    break;    
+            }   
         }
     }, [value]);
     return {isEmpty, minLength, maxLength, invalidUrl}
@@ -45,8 +46,6 @@ export const useInput = (validations) => {
     }
     const onBlur = e => {
         setDirty(true);
-        console.log("blure");
-
     }
     return {
         value,

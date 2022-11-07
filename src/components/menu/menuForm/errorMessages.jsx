@@ -3,43 +3,36 @@ import {
     MIN_LENGTH,
     INVALID_URL,
     NOT_UNIQUE,
-    IS_EMPTY,
-    ERROR_LENGTH
 } from './typeErrors';
 
-export const errorsMessages = (errors) => {
-    let messages = {};
-    for (let error in errors) 
-        switch (error) {
-            case NOT_UNIQUE:
-                {
-                    console.log(NOT_UNIQUE);
-                    if (error) {
-                        messages = {
-                            ...messages,
-                            [NOT_UNIQUE]: "Error , this link is not unique"
-                        };
-                    }
+export const ErrorMessages = ({error}) => {
+    switch (error) {
+        case NOT_UNIQUE:
+            {
+                if (error) {
+                    return <div>"Error , this item is not unique"</div>
                 }
-            case MAX_LENGTH:
-                {console.log(MAX_LENGTH);
-                    if (error) {
-                        messages = {
-                            ...messages,
-                            [NOT_UNIQUE]: "Error , this link`s name too long"
-                        };
-                    }
+
+            }
+        case MAX_LENGTH:
+            {  
+                if (error) {
+                    return <div>"Error , this link`s name too long"</div>
+
                 }
-            case MIN_LENGTH:
-                {console.log(MIN_LENGTH);
-                    if (error) {
-                        messages = {
-                            ...messages,
-                            [NOT_UNIQUE]: "Error , this link`s name too short"
-                        };
-                    }
+            }
+        case MIN_LENGTH:
+            {  
+                if (error) {
+                    return <div>"Error , this link`s name too short"</div>
+
                 }
-        }
-    
-    return messages;
+            }
+        case INVALID_URL:
+            {  
+                if (error) {
+                    return <div>"Error , this link is not valid"</div>                 
+                }
+            }
+    }
 }

@@ -14,6 +14,9 @@ function App() {
             ))
         },
         add: (title,url) => {
+            if (title ==='') {
+                title = "Some link";
+            }
           setDataLinks(dataLinks.concat([{title:title,link:url}])
        )
         }
